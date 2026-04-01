@@ -1,0 +1,47 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+coverage
+.vitest
+*.local
+
+# Vite / React 
+*.cache
+*.temp
+npm-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Prisma generated artifacts
+/src/generated/prisma
+
+# Local env files
+.env
+.env.*
+
+# Storybook output
+storybook-static
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+

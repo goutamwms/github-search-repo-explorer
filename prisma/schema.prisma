@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+
+model User {
+  id        String   @id @default(dbgenerated("(gen_random_uuid())::text"))
+  email     String   @unique
+  password  String?
+  name      String?
+  github_id  String?
+  avatar_url String?
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  updated_at DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+model Note {
+  id          String    @id @default(dbgenerated("(gen_random_uuid())::text"))
+  description String
+  tags        String[]  @default([])
+  user_id     String
+  created_at  DateTime? @default(now()) @db.Timestamptz(6)
+  updated_at  DateTime? @default(now()) @db.Timestamptz(6)
+}

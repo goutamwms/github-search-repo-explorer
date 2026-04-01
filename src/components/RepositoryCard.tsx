@@ -21,14 +21,14 @@ import { formatDate } from "@/helper";
 
 interface RepositoryCardProps {
   repository: GitHubRepository;
-  isFavorite: boolean;
-  onToggleFavorite: () => void;
+  isFavorite?: boolean;
+  onToggleFavorite?: () => void;
 }
 
 export function RepositoryCard({
   repository,
-  isFavorite,
-  onToggleFavorite,
+  isFavorite = false,
+  onToggleFavorite = () => {},
 }: RepositoryCardProps) {
   return (
     <Card className="flex flex-col h-full transition-shadow hover:shadow-md">

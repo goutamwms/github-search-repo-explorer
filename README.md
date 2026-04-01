@@ -1,7 +1,7 @@
 # Github repo search
 
-search, sort, pagination , 
-cache rearch record, 
+search, sort, pagination ,
+cache rearch record,
 set favourite repo
 add notes
 tests

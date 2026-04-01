@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { prisma } from "../db";
-import { AuthRequest, authenticateToken } from "../middleware/auth";
+import { AuthRequest } from "../middleware/auth";
 
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
 
@@ -14,18 +14,12 @@ export const signup = async (req: Request, res: Response) => {
       return res.status(400).json({ error: "Email and password are required" });
     }
 
-    console.log("Checking for existing user...");
     const existingUser = await prisma.user.findUnique({ where: { email } });
-    console.log("Existing user:", existingUser);
     if (existingUser) {
       return res.status(400).json({ error: "Email already registered" });
     }
 
-    console.log("Hashing password...");
     const hashedPassword = await bcrypt.hash(password, 10);
-    console.log("Password hashed");
-
-    console.log("Creating user...");
     const user = await prisma.user.create({
       data: {
         email,
@@ -33,7 +27,6 @@ export const signup = async (req: Request, res: Response) => {
         name: name || email.split("@")[0],
       },
     });
-    console.log("User created:", user);
 
     const token = jwt.sign({ userId: user.id }, JWT_SECRET, {
       expiresIn: "7d",

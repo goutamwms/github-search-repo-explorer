@@ -17,7 +17,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { GitHubRepository } from "@/types/github";
-import {formatDate} from "@/helper";
+import { formatDate } from "@/helper";
 
 interface RepositoryCardProps {
   repository: GitHubRepository;
@@ -30,8 +30,6 @@ export function RepositoryCard({
   isFavorite,
   onToggleFavorite,
 }: RepositoryCardProps) {
-
-
   return (
     <Card className="flex flex-col h-full transition-shadow hover:shadow-md">
       <CardHeader className="pb-3">

@@ -1,4 +1,4 @@
-export { Button, buttonVariants } from "./button";
+export { Button } from "./button";
 export {
   Card,
   CardHeader,
@@ -8,6 +8,6 @@ export {
   CardContent,
 } from "./card";
 export { Input } from "./input";
-export { Badge, badgeVariants } from "./badge";
+export { Badge } from "./badge";
 export { Select } from "./select";
 export { Loader, PageLoader } from "./loader";

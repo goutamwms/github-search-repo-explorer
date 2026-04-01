@@ -7,7 +7,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/context/AuthContext";
 import { notesApi, type Note } from "@/services/api";
-import {formatDate} from "@/helper";
+import { formatDate } from "@/helper";
 
 export function DashboardPage() {
   const { user, loading: authLoading } = useAuth();
@@ -233,7 +233,9 @@ export function DashboardPage() {
               ) : (
                 <>
                   <CardContent className="flex-1">
-                    <p className="whitespace-pre-wrap pt-6">{note.description}</p>
+                    <p className="whitespace-pre-wrap pt-6">
+                      {note.description}
+                    </p>
                     {note.tags.length > 0 && (
                       <div className="flex flex-wrap gap-1 mt-3">
                         {note.tags.map((tag) => (
